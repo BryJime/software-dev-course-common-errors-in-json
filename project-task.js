@@ -47,24 +47,24 @@ but it contains multiple syntax errors that prevent it from being parsed.
 const invalidBookingJSON = `
 {
   "hotelName": "Grand City Hotel",
-  "checkInDate": "2024-05-15"
+  "checkInDate": "2024-05-15", (Fixed by adding comma to individualize key)
   "checkOutDate": "2024-05-20",
   "guests": [
     {
-      name: "Alice Johnson",
+      "name": "Alice Johnson", (Fixed by enclosing name in double quotes. All keys must have double quotes)
       "age": 30,
       "email": "alice.johnson@example.com"
     },
     {
       "name": "Bob Smith",
-      "age": undefined,
+      "age": null, (Fixed by changing to null. Undefined is invalid)
       "email": "bob.smith@example"
     }
   ],
   "roomDetails": {
     "type": "Suite",
     "pricePerNight": 200,
-    "amenities": ["WiFi", "Breakfast", "Parking",]
+    "amenities": ["WiFi", "Breakfast", "Parking"] (Fixed by taking out trailing comma)
   }
 }
 `;
@@ -92,10 +92,20 @@ const invalidBookingJSON = `
 
 1️⃣ What tools or techniques did you use to identify the errors?
 
+The tools I used were VS and JSONLint. I first glanced at the json file 
+for any obvious errors and corrected them, them validated them with JSONLint.
+
 2️⃣ How did you confirm that your corrected JSON file was valid?
+
+I used VS and JSONLint
 
 3️⃣ Which errors were the most difficult to spot? Why?
 
+There were not any difficult errors, though if I weren't paying attention
+I would've missed the undefined error.
+
 4️⃣ What strategies can help you avoid these kinds of errors in the future?
    (e.g., syntax highlighting, linters, writing JSON by example)
+
+   Copying and pasting the JSON into an IDE with syntax highlighters would help with this. 
 */
